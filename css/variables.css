@@ -1,3 +1,9 @@
 :root{
-    --color-primary: white;
+    --color-primero: #ff702a;
+    --color-segundo:white;
+    --color-tercero: #1e1d2b;/*Color del body*/
+    --color-cuarto: #000;
+    --color-quinto: #ffefe8;
+    --color-sexto: #2c2b47; /*Color del menu movil*/
 }
+

@@ -1,8 +1,115 @@
 @import url(../css/variables.css);
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    background: var(--color-tercero);
+    width: 100%;
+    height: 100vh;
+    margin-top: 20px;
+    font-family: "Poppins", sans-serif;
+    
+}
+header{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas: 
+    "food . . menus menus menus menus ."
+    "titulo titulo titulo img img img . ."
+    "titulo titulo titulo img img img . ."
+    "titulo titulo titulo img img img . ."
+    ;
+}
+
+.item_1{
+    grid-area: food;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    color: var(--color-primero);
+    /* background: red; */
+}
+.item_2{
+    height: 60%;
+    grid-area: titulo;
+    line-height: 1.5;
+    color: var(--color-primero);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* background: red; */
+}
+.item_2 h1{
+    white-space: normal;
+    font-size: 5rem;
+    /* background: blue; */
+}
+.item_2 h2{
+    width: 50%;
+    white-space: normal;
+    grid-area: explain;
+    color: var(--color-segundo);
+    font-size: 2em;
+    line-height: 1;
+    /* background: yellow; */
+}
+.item_2 button{
+    margin-top: 40px;
+    width: 20%;
+    height: 10%;
+    color: var(--color-segundo);
+    background: var(--color-primero);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.item_2 button p{
+    white-space: normal;
+    font-size: 1.5em;
+}
+.item_3{
+    grid-area: menus;
+    /* background: orange; */
+}
+.lista{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    
+    /* background: green; */
+}
+.lista li{
+    /* background: red; */
+    width: 14%;
+    height: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.lista li:hover{
+    border: 2px solid green;
+}
+.lista li a{
+    font-size: 2em;
+    text-decoration: none;
+    color: var(--color-segundo);
+   
+}
+.item_4{
+    width: 80%;
+    height: 80%;
+    grid-area: img;
+    /* background: black; */
+}
+.item_4 img{
+    width: 100%;
+    height: 100%;
+}
