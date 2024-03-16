@@ -7,23 +7,24 @@
 
 body{
     background: var(--color-tercero);
-    width: 100%;
-    height: 100vh;
-    margin-top: 20px;
+    margin: 2% 2% 0 2%;
     font-family: "Poppins", sans-serif;
-    
 }
 header{
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: repeat(5,1fr);
-    grid-template-areas: 
+    grid-template-areas:
     "food . . menus menus menus menus ."
     "titulo titulo titulo img img img . ."
     "titulo titulo titulo img img img . ."
     "titulo titulo titulo img img img . ."
     ;
 }
+
+
+
+
 
 .item_1{
     grid-area: food;
@@ -33,83 +34,571 @@ header{
     color: var(--color-primero);
     /* background: red; */
 }
+
 .item_2{
+    width: 100%;
     height: 60%;
+    padding-left: 200px;
     grid-area: titulo;
     line-height: 1.5;
     color: var(--color-primero);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-
+    word-spacing: 10px;
+    /* align-items: center; */
+    /* align-content: center; */
     /* background: red; */
 }
-.item_2 h1{
+.item_2_h1{
+    width: 100%;
     white-space: normal;
-    font-size: 5rem;
+    font-size: 6rem;
+
     /* background: blue; */
 }
-.item_2 h2{
-    width: 50%;
+.item_2_h2{
+    width: 60%;
     white-space: normal;
     grid-area: explain;
     color: var(--color-segundo);
     font-size: 2em;
-    line-height: 1;
+    line-height: 1em;
     /* background: yellow; */
 }
-.item_2 button{
+.item_2_button{
     margin-top: 40px;
-    width: 20%;
-    height: 10%;
+    width: 31%;
+    height: 16%;
     color: var(--color-segundo);
     background: var(--color-primero);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* border: none; */
+    word-spacing: 10px;
 }
-.item_2 button p{
+.item_2_button p{
     white-space: normal;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 .item_3{
+    height: 50%;
     grid-area: menus;
     /* background: orange; */
 }
-.lista{
+.item_3_lista{
     list-style: none;
     display: flex;
     justify-content: space-around;
-    
     /* background: green; */
 }
-.lista li{
+.item_3_lista li{
     /* background: red; */
     width: 14%;
     height: 14%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
-.lista li:hover{
+.item_3_lista li:hover{
     border: 2px solid green;
 }
-.lista li a{
+.item_3_lista li a{
     font-size: 2em;
     text-decoration: none;
     color: var(--color-segundo);
-   
 }
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 2em;
+    margin-left: 20px;
+}
+
+
 .item_4{
     width: 80%;
     height: 80%;
     grid-area: img;
+    margin-top: -100px;
     /* background: black; */
 }
 .item_4 img{
     width: 100%;
     height: 100%;
+}
+
+
+
+
+
+.about{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "img texto"
+    ;
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px;
+}
+.about_imagen{
+    width: 100%;
+    height: 100%;
+    grid-area: img;
+    /* background: yellow; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.about_imagen img{
+    width: 50%;
+    height: 50%;
+}
+.about_texto{
+    width: 100%;
+    height: 100%;
+    grid-area: texto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    /* background: blue; */
+    gap: 15px;
+    word-spacing: 10px;
+
+}
+.about_texto_h3{
+    font-size: 1.5em;
+    color: var(--color-primero);
+}
+.about_texto_h1{
+    font-size: 3em;
+    color: var(--color-segundo);
+}
+.about_texto_p{
+    color: var(--color-segundo);
+    line-height: 1em;
+    font-size: 1.5em;
+
+}
+.about_button{
+    width: 20%;
+    height: 5%;
+    color: var(--color-segundo);
+    background: var(--color-primero);
+    /* border: none; */
+    border-radius: 2px;
+    word-spacing: 5px;
+}
+.about_button_p{
+    white-space: normal;
+    font-size: 1.5em;
+}
+
+
+
+
+.menu{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background: red; */
+    gap: 100px;
+}
+.menu_texto{
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* background: yellow; */
+    word-spacing: 10px;
+    gap: 30px;
+}
+.menu_texto h3{
+    font-size: 1.5em;
+}
+.menu_texto h1{
+    font-size: 3em;
+}
+.menu_imagen{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    /* background: blue; */
+}
+.menu_imagen ul{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    gap: 40px;
+
+}
+.menu_imagen ul li{
+    width: 23%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    background: var(--color-quinto);
+    border: 2px solid var(--color-cuarto);
+    word-spacing: 5px;
+}
+.menu_imagen ul li i{
+   align-self: flex-end;
+   padding-right: 5px;
+   font-size: 50px;
+   /* background: red; */
+}
+.menu_imagen ul li img{
+    width: 60%;
+    height: 60%;
+}
+
+
+
+
+.service{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background: red; */
+}
+.service_texto{
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* background: yellow; */
+    word-spacing: 20px;
+
+}
+.service_texto h3{
+    font-size: 1.5em;
+}
+.service_texto h1{
+    font-size: 3em;
+}
+.service_imagen{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    /* background: blue; */
+}
+.service_imagen ul{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    gap: 40px;
+    /* background: red; */
+
+}
+.service_imagen ul li{
+    width: 23%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    word-spacing: 5px;
+    /* background: blue; */
+
+}
+.service_imagen ul li h3{
+   display: flex;
+   text-align: center;
+   font-size: 1.6em;
+   /* background: red;  */
+}
+.service_imagen ul li img{
+    width: 60%;
+    height: 60%;
+}
+
+
+
+
+
+.learn{
+    width: 100%;
+    height: 100vh;
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.learn_contain{
+    width: 90%;
+    height: 80%;
+    background: var(--color-quinto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    font-size: 2.5em;
+    border: 5px solid var(--color-cuarto);
+}
+.learn_button{
+    width: 20%;
+    height: 10%;
+    color: var(--color-segundo);
+    background: var(--color-primero);
+    /* border: none; */
+    border-radius: 2px;
+    word-spacing: 5px;
+}
+.learn_button_p{
+    white-space: normal;
+    font-size: 2.5em;
+}
+
+
+
+
+.contenedor{
+    width: 100%;
+    height: 50vh;
+    display: grid;
+    grid-template-columns:1fr repeat(4,2fr) 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+    ". . . . . . "
+    ". menul service information contact ."
+    ". . . . . . "
+    ;
+    /* background: white; */
+    color: var(--color-segundo);
+
+}
+.item_footer_1{
+    grid-area: menul;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+}
+.item_footer_1 h1{
+    font-size: 2em;
+}
+.item_footer_1 ul{
+    list-style: none;
+    font-size: 1.2em;
+    /* background: yellow; */
+    margin-top: 10px;
+    line-height: 1.5;
+
+}
+
+.item_footer_2{
+    grid-area: service;
+    /* background: blue; */
+}
+.item_footer_2 h1{
+    font-size: 2em;
+}
+.item_footer_2 ul{
+    list-style: none;
+    font-size: 1.2em;
+    /* background: yellow; */
+    margin-top: 10px;
+    line-height: 1.5;
+
+}
+.item_footer_3{
+    grid-area: information;
+    /* background: green; */
+}
+.item_footer_3 h1{
+    font-size: 2em;
+}
+.item_footer_3 ul{
+    list-style: none;
+    font-size: 1.2em;
+    /* background: yellow; */
+    margin-top: 10px;
+    line-height: 1.5;
+}
+.item_footer_4{
+    grid-area: contact;
+    /* background: yellow; */
+}
+.item_footer_4 h1{
+    font-size: 2em;
+}
+.item_footer_4 ul{
+    list-style: none;
+    font-size: 1.2em;
+    /* background: yellow; */
+    margin-top: 10px;
+    line-height: 1.5;
+    display: flex;
+    gap: 15px;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+    body{
+        background: var(--color-tercero);
+        margin: 2% 2% 0 2%;
+        font-family: "Poppins", sans-serif;
+    }
+    header{
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(5,1fr);
+        grid-template-areas:
+        "food menus"
+        "titulo titulo"
+        "titulo titulo"
+        "img img"
+        "img img"
+        ;
+    }
+    .item_1{
+        grid-area: food;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 3em;
+        color: var(--color-primero);
+        /* background: red; */
+    }
+    /*
+    .item_2{
+        width: 100%;
+        height: 60%;
+        grid-area: titulo;
+        line-height: 1.5;
+        color: var(--color-primero);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        word-spacing: 10px;
+    }
+    .item_2_h1{
+        width: 100%;
+        white-space: normal;
+        font-size: 6rem;
+    
+        background: blue;
+    }
+    .item_2_h2{
+        width: 60%;
+        white-space: normal;
+        grid-area: explain;
+        color: var(--color-segundo);
+        font-size: 2em;
+        line-height: 1em;
+        background: yellow;
+    }
+    .item_2_button{
+        margin-top: 40px;
+        width: 31%;
+        height: 16%;
+        color: var(--color-segundo);
+        background: var(--color-primero);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        word-spacing: 10px;
+    }
+    .item_2_button p{
+        white-space: normal;
+        font-size: 1.7em;
+    } */
+    
+    .item_3{
+        /* background: red; */
+        
+        display: flex;
+        justify-content: flex-end;
+    }
+    .item_3_lista {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        
+    }
+
+    .item_3_lista.show {
+        display: flex;
+        width: 100%;
+        height: 60vh;
+        margin-right: -20px;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 7%;
+        background: var(--color-sexto);
+        z-index: 1000;
+    }
+    .item_3_lista.show li {
+        
+        background: red;
+
+    }
+
+    .item_3_lista.show li:first-child {
+        margin-top: 0;
+    }
+    /* .item_4{
+        width: 80%;
+        height: 80%;
+        grid-area: img;
+        margin-top: -100px;
+        background: black;
+    }
+    .item_4 img{
+        width: 100%;
+        height: 100%;
+    }
+     */
 }

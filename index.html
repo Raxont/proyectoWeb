@@ -8,37 +8,178 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <header>
+    <header id="Home">
         <div class="item_1">Foods</div>
         <div class="item_2">
-            <h1>Full Website</h1>
-            <h2>Foods the <br> Most precious thing</h2>
-            <button>
-                <p>Today's   Menu</p>
+            <h1 class="item_2_h1">Full Website</h1>
+            <h2 class="item_2_h2">Foods the <br> Most precious thing</h2>
+            <button class="item_2_button">
+                <p>Today's Menu</p>
             </button>
         </div>
         <div class="item_3">
-            <ul class="lista">
+            
+            <ul class="item_3_lista">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="#Home">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#About">About</a>
                 </li>
                 <li>
-                    <a href="#">Menu</a>
+                    <a href="#Menu">Menu</a>
                 </li>
                 <li>
-                    <a href="#">Service</a>
+                    <a href="#Service">Service</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#Contact">Contact</a>
                 </li>
             </ul>
+            <div class="menu-toggle">
+                <span>&#9776;</span>
+            </div>
         </div>
         <div class="item_4">
             <img src="store/img/home.png">
         </div>
     </header>
+    <main>
+        <div class="about" id="About">
+            <div class="about_imagen"><img src="store/img/about.png"></div>
+            <div class="about_texto">
+                <h3 class="about_texto_h3">About Us</h3>
+                <h1 class="about_texto_h1">We speak the good <br>
+                    food language</h1>
+                <p class="about_texto_p">It is a long established fact that a <br>
+                    be distracted by the readable content <br>
+                    looking at its layout. The point of</p>
+                <button class="about_button">
+                    <p class="about_button_p">Learn More</p>
+                </button>
+            </div>
+        </div>
+        <div class="menu" id="Menu">
+            <div class="menu_texto">
+                <h3 style="color:var(--color-primero)">Food Menu</h3>
+                <h1 style="color:var(--color-segundo)">Fresh taste and great price</h1>
+            </div>
+            <div class="menu_imagen">
+                <ul>
+                    <li>
+                        <i class='bx bx-menu' ></i>
+                        <img src="store/img/food1.png">
+                        <h2>Chicken Burger</h2>
+                        <h3>Tasty Food</h3>
+                        <h3 style="color: var(--color-primero);">$11.00</h3>
+
+                    </li>
+                    <li>
+                        <i class='bx bx-menu' ></i>
+                        <img src="store/img/food2.png">
+                        <h2>Special Beef Burger</h2>
+                        <h3>Tasty Food</h3>
+                        <h3 style="color: var(--color-primero);">$11.00</h3>
+                    </li>
+                    <li>
+                        <i class='bx bx-menu' ></i>
+                        <img src="store/img/food3.png">
+                        <h2>Chicken Fry Pack</h2>
+                        <h3>Tasty Food</h3>
+                        <h3 style="color: var(--color-primero);">$11.00</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="service" id="Service">
+            <div class="service_texto">
+                <h3 style="color:var(--color-primero)">Services</h3>
+                <h1 style="color:var(--color-segundo)">We provide best food services</h1>
+            </div>
+            <div class="service_imagen">
+                <ul>
+                    <li>
+                        <img src="store/img/s1.png">
+                        <h2 style="color:var(--color-primero)">Order</h2>
+                        <h3 style="color:var(--color-segundo)">It is a long established <br> be distracted by the readable <br> looking at its layout</h3>
+                    </li>
+                    <li> 
+                        <img src="store/img/s2.png">
+                        <h2 style="color:var(--color-primero)">Shipping</h2>
+                        <h3 style="color:var(--color-segundo)">It is a long established <br> be distracted by the readable <br> looking at its layout</h3>
+                    </li>
+                    <li>
+                        <img src="store/img/s3.png">
+                        <h2 style="color:var(--color-primero)">Delivered</h2>
+                        <h3 style="color:var(--color-segundo)">It is a long established <br> be distracted by the readable <br> looking at its layout</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="learn">
+            <div class="learn_contain">
+                <h1 class="learn_h1">We make quality food <br> Everyday</h1>
+                <button class="learn_button">
+                    <p class="learn_button_p">Learn More</p>
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="contenedor" id="Contact">
+            <div class="item_footer_1">
+                <h1>Menu Links</h1>
+                <p style="color:orange;">----------------</p>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Menu</li>
+                    <li>Service</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="item_footer_2">
+                <h1>Our Service</h1>
+                <p style="color:orange;">----------------</p>
+                <ul>
+                    <li>Web Design</li>
+                    <li>Web Development</li>
+                    <li>Marketing</li>
+                    <li>Product Management</li>
+                    <li>Graphic Design</li>
+                </ul>
+            </div>
+            <div class="item_footer_3">
+                <h1>Information</h1>
+                <p style="color:orange;">----------------</p>
+                <ul>
+                    <li>About Us</li>
+                    <li>Delivery Information</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms & Conditions</li>
+                </ul>
+            </div>
+            <div class="item_footer_4">
+                <h1>Contact Us</h1>
+                <p style="color:orange;">----------------</p>
+                <ul>
+                    <li><i class='bx bxl-facebook-square' ></i></li>
+                    <li><i class='bx bxl-instagram-alt' ></i></li>
+                    <li><i class='bx bxl-whatsapp' ></i></li>
+                    <li><i class='bx bxl-gmail' ></i></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuList = document.querySelector('.item_3_lista');
+
+    menuToggle.addEventListener('click', function() {
+        menuList.classList.toggle('show');
+    });
+});
+</script>
 </body>
 </html>
