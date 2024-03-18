@@ -4,5 +4,5 @@
     --color-terciario: #3B3535;
     --color-cuarto: #4D2F2F;
     --color-quinto: #573232;
-    --color-sexto: white;
+    --color-sexto: rgba(255, 255, 255, 0.562);
 }

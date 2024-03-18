@@ -129,7 +129,7 @@ box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
     flex-wrap: wrap;
     gap: 1.8em;
     max-height: 80vh;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 .div5_1 {
     width: 23%;
