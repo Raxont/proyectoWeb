@@ -32,11 +32,7 @@ body {
   font-size: 2.5em;
   /* background: pink; */
 }
-.div2 {
-  grid-area: menus;
 
-  /* background: blue; */
-}
 .div2_ul {
   height: 100%;
   font-size: 1.5em;
@@ -237,9 +233,22 @@ body {
       "img"
       "derechos";
   }
+  .div2 nav{
+    display: none;
+    background: var(--color-sexto);
+    border: 1px solid var(--color-terciario);
+  }
+  #toggleMenu{
+    display: block;
+    font-size: 1.5em;
+    width: 3em;
+    background: var(--color-sexto);
+    
+  }
   .div2_ul {
     padding-top: 1em;
-    gap: 1em;
+    gap: 0em;
+    margin-top: -1em;
   }
   .div3_1 {
     background: none;

@@ -12,26 +12,30 @@
 <body>
   <div class="div1">
     <h1 class="div1_h1">CampusShop</h1>
+    <br>
+    <button id="toggleMenu">Menu</button>
   </div>
   <div class="div2">
-    <ul class="div2_ul">
-      <li class="div2_ul_li_eleccion">
-        <a href="index.html"><i class="bx bx-menu-alt-left" style="color: var(--color-primario);"></i></a>
-        <p class="div2_ul_li_p">Todos los productos</p>
-      </li>
-      <li class="div2_ul_li">
-        <a href="views/abrigos.html"><i class="bx bx-chevrons-left" style="color: var(--color-primario);"></i></a>
-        <p class="div2_ul_li_p">Abrigos</p>
-      </li>
-      <li class="div2_ul_li">
-        <a href="views/camisetas.html"><i class="bx bx-chevrons-left" style="color: var(--color-primario);"></i></a>
-        <p class="div2_ul_li_p">Camisetas</p>
-      </li>
-      <li class="div2_ul_li">
-        <a href="views/pantalones.html"><i class="bx bx-chevrons-left" style="color: var(--color-primario);"></i></a>
-        <p class="div2_ul_li_p">Pantalones</p>
-      </li>
-    </ul>
+    <nav id="menu">
+      <ul class="div2_ul">
+        <li class="div2_ul_li_eleccion">
+          <a href="index.html"><i class="bx bx-menu-alt-left" style="color: var(--color-primario);"></i></a>
+          <p class="div2_ul_li_p">Todos los productos</p>
+        </li>
+        <li class="div2_ul_li">
+          <a href="views/abrigos.html"><i class="bx bx-chevrons-left" style="color: var(--color-primario);"></i></a>
+          <p class="div2_ul_li_p">Abrigos</p>
+        </li>
+        <li class="div2_ul_li">
+          <a href="views/camisetas.html"><i class="bx bx-chevrons-left" style="color: var(--color-primario);"></i></a>
+          <p class="div2_ul_li_p">Camisetas</p>
+        </li>
+        <li class="div2_ul_li">
+          <a href="views/pantalones.html"><i class="bx bx-chevrons-left" style="color: var(--color-primario);"></i></a>
+          <p class="div2_ul_li_p">Pantalones</p>
+        </li>
+      </ul>
+    </nav>
   </div>
   <div class="div3">
     <div class="div3_1">
@@ -312,6 +316,18 @@
       </div>
     </div>
   </div>
+<script>
+  const toggleMenuButton = document.getElementById('toggleMenu');
+  const menuDiv2 = document.querySelector('.div2 nav');
+
+  toggleMenuButton.addEventListener('click', function() {
+    if (menuDiv2.style.display === 'none') {
+      menuDiv2.style.display = 'block';
+    } else {
+      menuDiv2.style.display = 'none';
+    }
+  });
+</script>
 </body>
 
 </html>

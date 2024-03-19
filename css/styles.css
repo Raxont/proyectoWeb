@@ -32,6 +32,9 @@ body {
   font-size: 2.5em;
   /* background: pink; */
 }
+#toggleMenu{
+  display: none;
+}
 .div2 {
   grid-area: menus;
   
@@ -237,4 +240,102 @@ box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
 
 .button:hover .icon {
   top: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "menus"
+      "carrito"
+      "img"
+      "derechos";
+  }
+  .div2 nav{
+    display: none;
+    background: var(--color-sexto);
+    border: 1px solid var(--color-terciario);
+  }
+  #toggleMenu{
+    display: block;
+    font-size: 1.5em;
+    width: 3em;
+    background: var(--color-sexto);
+  }
+  .div2_ul {
+    padding-top: 1em;
+    gap: 0em;
+    margin-top: -1em;
+  }
+  .div2_ul_li_eleccion,
+  .div2_ul_li{
+    border: 1px solid var(--color-terciario);
+  }
+  .div2_ul_li_eleccion{
+    background: none;
+  }
+  .div3_1 {
+    background: none;
+    padding-top: 2em;
+  }
+  .div4_p {
+    padding-top: 2em;
+  }
+  .div5 {
+    width: 95vw;
+    height: 100vh;
+    margin-top: 0.5em;
+    padding: 0em 0em;
+    /* background: blue; */
+  }
+  .div5_p{
+    font-size: 1.5em;
+    padding: 1em 0 1.5em 1em;
+    display: flex;
+    
+}
+  .div5_contenedor {
+    height: 100%;
+    padding: 0 0 0 1em;
+    gap: 1em;
+    max-height: 75vh;
+    overflow: scroll;
+    /* background: blue; */
+  }
+  .div5_1 {
+    width: 45%;
+    height: 35vh;
+    gap: 0.2em;
+  }
+  .div5_1 img {
+    width: 50%;
+    height: 30vh;
+  }
+  .div5_1_1 {
+    width: 100%;
+    font-size: 0.5em;
+    display: flex;
+    align-items: center;
+    line-height: 1.5em;
+  }
+  .div5_1_1_p{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    margin-left: 1em;
+    line-height: 2em; 
+    /* background: red; */
+  }
+  .button {
+    --width: 80px;
+    --height: 20px;
+  }
+  .icon svg {
+    width: 14px;
+    height: 14px;
+  }
 }
