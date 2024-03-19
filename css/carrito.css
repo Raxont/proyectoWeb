@@ -34,32 +34,30 @@ body {
 }
 .div2 {
   grid-area: menus;
-  
+
   /* background: blue; */
 }
-.div2_ul{
-    height: 100%;
-    font-size: 1.5em;
-    /* background: red; */
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    
+.div2_ul {
+  height: 100%;
+  font-size: 1.5em;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 .div2_ul_li_eleccion,
-.div2_ul_li{
-    /* background: yellow; */
-    list-style-type: none;
-    gap: 1.5em;
-    display: flex;
-    align-items: center;
-    
+.div2_ul_li {
+  /* background: yellow; */
+  list-style-type: none;
+  gap: 1.5em;
+  display: flex;
+  align-items: center;
 }
-.bx-menu-alt-left{
-    font-size: 1.5em;
+.bx-menu-alt-left {
+  font-size: 1.5em;
 }
-.bx-chevrons-left{
-    font-size: 1.5em;
+.bx-chevrons-left {
+  font-size: 1.5em;
 }
 .div3 {
   grid-area: carrito;
@@ -77,8 +75,8 @@ body {
   background: var(--color-sexto);
   border-right: 0px;
 }
-.bxs-cart{
-    font-size: 1.5em;
+.bxs-cart {
+  font-size: 1.5em;
 }
 .div3_1_3 {
   background: var(--color-sexto);
@@ -97,79 +95,81 @@ body {
   font-size: 1.5em;
 }
 .div5 {
-    width: 100%;
-    height: 95vh;
-    grid-area: img;
-    background: var(--color-sexto);
-    border-radius: 3em;
-    /* border: 1px solid var(--color-primario); */
-    -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
--moz-box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
-box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
+  width: 100%;
+  height: 95vh;
+  grid-area: img;
+  padding-bottom: 2em;
+  background: var(--color-sexto);
+  border-radius: 3em;
+  /* border: 1px solid var(--color-primario); */
+  -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+  -moz-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+  box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+  overflow-y: scroll;
 }
-.div5_p{
-    width: 100%;
-    height: 10vh;
-    /* background: blue; */
-    font-size: 3em;
-    padding: .5em 0 1.5em .5em;
-    display: flex;
-    
+.div5_p {
+  width: 100%;
+  height: 10vh;
+  /* background: blue; */
+  font-size: 3em;
+  padding: 0.5em 0 1.5em 0.5em;
+  display: flex;
 }
-.div5_contenedor{
-    width: 100%;
-    height: 100%;
-    padding: 0 0 0 1.5em;
-    /* background: red; */
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1.8em;
-    max-height: 80vh;
-    /* overflow-y: scroll; */
+.div5_contenedor {
+  padding: 0 0 0 1.5em;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
 }
 .div5_1 {
-    width: 97%;
-    height: 33%;
-    background: linear-gradient(#0001, var(--color-primario));
-    -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
--moz-box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
-box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 20px; 
-    overflow: hidden; 
-    gap: 2em;
-  
+  width: 97%;
+  height: 25vh;
+  background: linear-gradient(#0001, var(--color-primario));
+  -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+  -moz-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+  box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  gap: 1em;
 }
-.div5_1 img{
-    width: 15%;
-    height: 90%;
-    /* background: green; */
+.div5_1 img {
+  padding-left: 1em;
+  width: 12%;
+  height: 85%;
+  /* background: green; */
 }
-.div5_1_1{
-    width: 20%;
-    height: 80%; 
-    /* background: blue; */
-    font-size: 2em; 
-    display: flex;
-    align-items: center; 
+.div5_1_1 {
+  width: 18%;
+  height: 80%;
+  /* background: blue; */
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  line-height: 2.5em;
 }
-.div5_1_diferente{
-  width: 20%;
-  height: 80%; 
-  font-size: 2em; 
-  display: flex;  
+.div5_1_diferente {
+  width: 18%;
+  height: 80%;
+  font-size: 1.5em;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1.2em;
   /* background: red; */
 }
-.div5_1_1_cantidad{
+.div5_1_1_cantidad {
   width: 50%;
+  /* background: yellow; */
 }
-.cantidad_2{
-  width: 100%;
-  height: 20%;
+.cantidad_2 {
+  /* background: green; */
+  width: 80%;
   border: 2px solid var(--color-terciario);
+}
+.bx-trash {
+  font-size: 6em;
+  color: var(--color-primario);
 }
