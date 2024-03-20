@@ -1,12 +1,15 @@
 @import url(../css/variables.css);
 * {
-  margin: 0 0 0 1%;
-  padding-right: 1%;
+  margin: 0 0 0 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   background: var(--color-tercero);
   font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
+  
+  margin: 0px;
+  padding: 0 5% 0 5%;
 }
 .header {
   width: 100%;
@@ -23,12 +26,13 @@ body {
 }
 .item_1 {
   width: 60%;
-  height: 7%;
+  height: 10%;
+  
   grid-area: food;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 3em;
+  font-size: 2.5em;
   color: var(--color-primero);
   background: var(--color-tercero);
   position: fixed;
@@ -36,7 +40,7 @@ body {
 .item_2 {
   width: 100%;
   height: 100%;
-  padding-left: 150px;
+  padding-left: 100px;
   grid-area: titulo;
   line-height: 1.5;
   color: var(--color-primero);
@@ -46,10 +50,10 @@ body {
   /* background: red; */
 }
 .item_2_h1 {
-  width: 100%;
+  width: 80%;
   height: 33%;
   white-space: normal;
-  font-size: 7.5rem;
+  font-size: 6rem;
   display: flex;
   align-items: flex-end;
   /* background: blue; */
@@ -60,14 +64,14 @@ body {
   white-space: normal;
   grid-area: explain;
   color: var(--color-segundo);
-  font-size: 2.5em;
-  line-height: 1em;
+  font-size: 2em;
+  line-height: 1.5em;
   /* background: yellow; */
 }
 .item_2_button {
-  margin-top: 3em;
-  width: 25%;
-  height: 6%;
+  margin-top: 2em;
+  width: 20%;
+  height: 5%;
   color: var(--color-segundo);
   background: var(--color-primero);
   display: flex;
@@ -75,11 +79,11 @@ body {
   justify-content: center;
   /* overflow: hidden; */
   /* border: none; */
-  word-spacing: 10px;
+  word-spacing: 5px;
 }
 .item_2_button p {
   white-space: normal;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .item_3 {
   grid-area: menus;
@@ -87,13 +91,15 @@ body {
 }
 .item_3_lista {
   width: 45%;
-  height: 7%;
+  height: 10%;
   list-style: none;
   display: flex;
   justify-content: space-between;
   position: fixed;
   align-items: center;
   overflow: hidden;
+  
+  padding-inline-start: 20px;
   background: var(--color-tercero);
 }
 .item_3_lista li {
@@ -107,7 +113,7 @@ body {
 .item_3_lista li:hover {
   border: 1px solid green;
   cursor: pointer;
-  height: 95%;
+  height: 70%;
 }
 .item_3_lista li a {
   font-size: 2em;
@@ -417,35 +423,31 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
-  body {
-    width: 100%;
-    height: 100%;
-    margin: 0 0 0 0;
-    padding: 2% 5% 0 5%;
-    /* background: blue; */
-  }
   .header {
     width: 100%;
     height: 100vh;
-    padding-top: 0em;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 5% 25% 70%;
+    grid-template-rows: 10% 20% 70%;
     grid-template-areas:
       "food menus"
       "titulo titulo"
       "img img"
     /* background: red; */
   }
+  body {
+    margin: 0px;
+  }
   .item_1 {
-    height: 5%;
+    height: 8%;
     grid-area: food;
     display: flex;
     justify-content: flex-start;
     font-size: 1.5em;
     color: var(--color-primero);
-    /* background: blue; */
+    background: none;
     position: absolute;
+    
   }
   .item_2 {
     width: 100%;
@@ -465,7 +467,7 @@ body {
   .item_2_h1 {
     width: 100%;
     white-space: normal;
-    font-size: 3.2rem;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
     /* background: blue; */
@@ -475,17 +477,17 @@ body {
     white-space: normal;
     grid-area: explain;
     color: var(--color-segundo);
-    font-size: 1.3em;
-    line-height: 1em;
+    font-size: 1em;
+    line-height: 1.2em;
     display: flex;
     justify-content: center;
     text-align: center;
     /* background: yellow; */
   }
   .item_2_button {
-    margin-top: 1.2em;
-    width: 35%;
-    height: 20%;
+    /* margin-top: 1.5em; */
+    width: 30%;
+    height: 3.5vh;
     color: var(--color-segundo);
     background: var(--color-primero);
     display: flex;
@@ -493,17 +495,18 @@ body {
     justify-content: center;
     /* overflow: hidden; */
     /* border: none; */
-    word-spacing: 10px;
+    word-spacing: 5px;
   }
   .item_2_button p {
     white-space: normal;
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .item_3 {
+    height: 80%;
     display: flex;
     justify-content: flex-end;
     grid-area: menus;
-    
+    align-items: center;
     /* background: red; */
   }
   .item_3_lista {
@@ -522,7 +525,7 @@ body {
     justify-content: space-around;
     padding-right: 0;
     position: absolute;
-    top: 3.2em;
+    top: 3em;
     background: var(--color-sexto);
   }
   .item_3_lista.show li{
@@ -672,12 +675,12 @@ body {
     background: var(--color-quinto);
     border: 2px solid var(--color-cuarto);
     word-spacing: 5px;
-    gap: 0px;
+    gap: 2px;
     
   }
   .bx-menu {
     align-self: flex-end;
-    font-size: 1em;
+    font-size: 1.5em;
   }
   .menu_imagen_ul_li_h2 {
     font-size: .8em;
@@ -733,7 +736,7 @@ body {
     align-items: center;
     align-content: flex-start;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 40px;
     /* background: yellow; */
   }
   .service_imagen_ul_li {
@@ -743,17 +746,17 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     word-spacing: 5px;
     /* background: blue; */
   }
   .service_imagen_ul_li_h2{
-    font-size: 1em;
+    font-size: 1.5em;
   }
   .service_imagen_ul_li_h3 {
     display: flex;
     text-align: center;
-    font-size: .8em;
+    font-size: 1em;
     /* background: red;  */
   }
   .service_imagen_ul_li img {
@@ -778,7 +781,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 50px;
+    gap: 20px;
     font-size: 0.8em;
     border: 5px solid var(--color-cuarto);
   }
@@ -815,18 +818,20 @@ body {
   .item_footer_3 h1,
   .item_footer_2 h1,
   .item_footer_1 h1 {
-    font-size: 1em;
+    font-size: 1.5em;
     padding-top: 1em;
+    word-spacing: 5px;
   }
   .item_footer_4 ul,
   .item_footer_3 ul,
   .item_footer_2 ul,
   .item_footer_1 ul {
     list-style: none;
-    font-size: 0.8em;
+    font-size: 1em;
     /* background: yellow; */
     margin-top: 5px;
     line-height: 1.5;
+    word-spacing: 5px;
   }
   .item_footer_1 {
     grid-area: menul;
@@ -851,9 +856,5 @@ body {
   .item_footer_4 ul {
     display: flex;
     gap: 10px;
-  }
-  .item_footer_4 p {
-    padding-right: 0.5em;
-    /* background: red; */
   }
 }
