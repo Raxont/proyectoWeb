@@ -1,21 +1,32 @@
 # Parte_1
 ## _Landing page de hamburguesa_
 
-En este documento encontraras informacion sobre la realizacion de mi pagina web.
+En este documento encontraras información sobre la realizacion de mi pagina web.
 
-- Introduccion
+- Introducción
+- Video de explicación en las dos vistas, monitor y celular
 - ✨Variables✨
-- Codigo HTML
-- Codigo CSS
+- Código HTML
+- Código CSS
 
 
-## Introduccion
+## Introducción
 
-Rama de repositorio creada para la realizacion de una pagina web de comidas rapidas, es responsive tanto para computadoras como para celulares siguiendo las putas dejadas por el trainer para la realizacion de esta parte del proyecto.
+Rama de repositorio creada para la realizacion de una pagina web de comidas rapidas, es responsive tanto para computadoras como para celulares siguiendo las putas dejadas por el trainer para la realización de esta parte del proyecto.
+
+## Vistas
+
+#### Monitor: 
+
+https://youtu.be/lrjPxY-l6M0
+
+#### Celular:
+
+https://youtube.com/shorts/EhLT7bkGGCI?feature=share
 
 ## Variables
 
-Estas son las variables y/o colores usados en esta pagian web
+Estas son las variables y/o colores usados en esta pagina web
 
 | Nombre | Color |
 | ------ | ------ |
