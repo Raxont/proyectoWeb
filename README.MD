@@ -3,15 +3,26 @@
 
 En este documento encontraras informacion sobre la realizacion de mi pagina web.
 
-- Introduccion
+- Introducción
 - ✨Variables✨
-- Codigo HTML
-- Codigo CSS
+- Video de explicación en las dos vistas, monitor y celular
+- Código HTML
+- Código CSS
 
 
-## Introduccion
+## Introducción
 
-Rama de repositorio creada para la realizacion de una pagina web de tienda de ropa donde utilizo colores a mi gusto pero sin salir de lo estetico y sigo en mayor parte el estilo pedido para la realizacion de esta pagina ademas siendo responsive tanto para celular como computadoras 
+Rama de repositorio creada para la realizacion de una pagina web de tienda de ropa donde utilizo colores a mi gusto pero sin salir de lo estetico y sigo en mayor parte el estilo pedido para la realizacion de esta pagina además siendo responsive tanto para celular como computadoras 
+
+## Vistas
+
+#### Monitor:
+
+https://youtu.be/L7wqChQ0HTs
+
+#### Celular:
+
+https://youtube.com/shorts/c7Sx-Wit1UA?feature=share
 
 ## Variables
 
@@ -712,5 +723,4 @@ box-shadow: inset -47px -57px 47px -42px rgba(0,0,0,1);
 ```
 
 > Hecho por `Camilo Andres Navas Medina`.
-
 
