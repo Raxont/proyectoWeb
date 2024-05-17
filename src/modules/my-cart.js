@@ -95,17 +95,66 @@ class MyElement extends LitElement {
 
   async connectedCallback() {
     super.connectedCallback();
+    await this.loadProducts();
+  }
+
+  async loadProducts() {
     const carts = await getCombinedData();
     this.products = [...carts];
+    console.log(this.products)
   }
+
   getTotal() {
     return this.products.reduce((acc, product) => acc + product.subtotal, 0);
   }
 
+  async vaciarCarrito() {
+    try {
+      const response = await fetch('http://localhost:5501/carrito');
+      const carrito = await response.json();
+
+      await Promise.all(
+        carrito.map(item =>
+          fetch(`http://localhost:5501/carrito/${item.id}`, {
+            method: 'DELETE'
+          })
+        )
+      );
+
+      await this.loadProducts();
+    } catch (error) {
+      console.error('Error al vaciar el carrito', error);
+    }
+  }
+
+  async eliminarProducto(id) { 
+    try {
+      console.log(`Eliminando producto con ID: ${id}`);
+      const response = await fetch(`http://localhost:5501/carrito/${id}`, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        console.log(`Producto con ID: ${id} eliminado exitosamente`);
+        await this.loadProducts();
+      } else {
+        console.error('Error al eliminar el producto', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error al eliminar el producto', error);
+    }
+  }
+  
+
+  handleDeleteProduct(event) {
+    const productId = event.detail.id;
+    console.log(`Evento delete-product recibido con ID: ${productId}`);
+    this.eliminarProducto(productId);
+  }
+
   render() {
     return html`
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-      <div class="product-list">
+      <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+      <div class="product-list" @delete-product="${this.handleDeleteProduct}">
         ${this.products.map(
           (product) => html`
             <product-card2
@@ -114,24 +163,26 @@ class MyElement extends LitElement {
               cuantity="${product.cantidad}"
               price="$ ${product.precio}"
               subtotal="${product.subtotal}"
+              productId="${product.productId}" 
+              type="${product.type}" 
             ></product-card2>
           `
         )}
       </div>
       <div class="footer">
-        <button class="vaciarCarrito_1">
+        <button class="vaciarCarrito_1" @click="${this.vaciarCarrito}">
           <p>Vaciar Carrito</p>
         </button>
         <div class="total">
           <p>
-          Total<br>
-          $ ${this.getTotal()}
+            Total<br>
+            $ ${this.getTotal()}
           </p>
           <button class="vaciarCarrito_2">
             <p>Comprar Ahora</p>
-        </button>
+          </button>
         </div>
-      </div>  
+      </div>
     `;
   }
 }

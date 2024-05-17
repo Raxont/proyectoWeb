@@ -6,14 +6,6 @@ import "./my-pants.js"
 import "./my-cart.js"
 
 class MiComponente extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: block;
-      }
-    `;
-  }
-
   static get properties() {
     return {
       opcionSeleccionada: { type: String }

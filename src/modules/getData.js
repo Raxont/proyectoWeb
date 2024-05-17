@@ -63,20 +63,17 @@ export const getCart = async () => {
         let dataUpdate = data.map(order => {
             let item = {};
             if (order.abrigoId) {
-                item.type = "Abrigo";
                 item.id = order.abrigoId;
             } else if (order.pantalonId) {
-                item.type = "Pantalon";
                 item.id = order.pantalonId;
             } else if (order.camisetaId) {
-                item.type = "Camiseta";
                 item.id = order.camisetaId;
             }
             item.cantidad = order.cantidad;
             item.orderId = order.id;
             return item;
         });
-        
+        console.log(dataUpdate);
         return dataUpdate;
     } catch (error) {
         console.error("Error al obtener los pedidos:", error);
@@ -119,12 +116,10 @@ export const getCombinedData = async () => {
                     cantidad: order.cantidad,
                     precio: product.precio,
                     subtotal: order.cantidad * product.precio,
-                    type: type
+                    productId:order.id
                 };
             }
-            console.log("Cantidad del pedido:", order.cantidad);
         });
-
         return combinedData.filter(item => item);
     } catch (error) {
         console.error("Error al obtener los datos combinados: ", error);

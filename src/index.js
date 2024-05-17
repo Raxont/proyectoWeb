@@ -51,12 +51,13 @@ class MyBodyComponent extends LitElement {
         margin-block-end: 0em;
       }
       .div2_ul_li {
+        height:100%;
         width:100%;
         list-style-type: none;
-        gap: 1.5em;
+        
       }
       button{
-        height:60%;
+        height:90%;
         width:100%;
         text-indent: 0px;
         text-shadow: none;
@@ -69,7 +70,7 @@ class MyBodyComponent extends LitElement {
         display:flex;
         align-items: center;
         font-size: 1em;
-        gap:5px;
+        gap:10px;
         background: var(--color-secundario);
         color: var(--color-primario);
       }
@@ -78,6 +79,7 @@ class MyBodyComponent extends LitElement {
       }
       .div3 {
         grid-area: carrito;
+        height:50%;
       }
       .div3_1 {
         font-size: 1.5em;
@@ -97,6 +99,9 @@ class MyBodyComponent extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      #btnCarrito{
+        font-size:1.2em;
       }
       .div4 {
         grid-area: derechos;
@@ -227,7 +232,7 @@ class MyBodyComponent extends LitElement {
       }
     `;
   }
-
+  
   render() {
     return html`
       <head>
@@ -284,7 +289,7 @@ class MyBodyComponent extends LitElement {
           <button id="btnCarrito">
           <i class="bx bxs-cart"></i>
             <p class="div2_ul_li_p">Carrito</p>
-            <div class="div3_1_3">5</div>
+            <div class="div3_1_3">${this.numProductosEnCarrito}</div>
           </button>
         </li>
       </div>
@@ -297,10 +302,17 @@ class MyBodyComponent extends LitElement {
       </div>
     `;
   }
-
+ 
+  static get properties() {
+    return {
+      numProductosEnCarrito: { type: Number }
+    };
+  }
   connectedCallback() {
     super.connectedCallback();
+    
     this.updateComplete.then(() => {
+      
       const botonesDiv2 = this.shadowRoot.querySelectorAll('.div2_ul_li button');
       const miComponente = this.shadowRoot.querySelector('#miComponente');
   
@@ -309,19 +321,16 @@ class MyBodyComponent extends LitElement {
         opcion.classList.add('opcion-seleccionada');
         miComponente.opcionSeleccionada = opcion.querySelector('p').textContent.toLowerCase();
         
-        // Capitalizar la primera letra de cada palabra
         const textoOpcion = opcion.querySelector('p').textContent;
         const textoFormateado = textoOpcion.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
         
-        // Actualizar el texto dentro de div5_p con la primera letra capitalizada
         const div5_p = this.shadowRoot.querySelector('.div5_p');
         div5_p.textContent = textoFormateado;
       };
       
-      // Por defecto, seleccionar "Todos los productos"
       const btnTodosProductos = this.shadowRoot.querySelector('#btnCarrito');
       updateSelectedOption(btnTodosProductos);
-
+  
       botonesDiv2.forEach(boton => {
         boton.addEventListener('click', () => {
           updateSelectedOption(boton);
@@ -329,6 +338,21 @@ class MyBodyComponent extends LitElement {
       });
     });
   }
+  
+  
+  
+  
+  
 }
 
 customElements.define("my-index", MyBodyComponent);
+
+export async function actualizarCantidadProductosEnCarrito() {
+  try {
+    const response = await fetch('http://localhost:5501/carrito');
+    const carrito = await response.json();
+    this.numProductosEnCarrito=carrito.length 
+  } catch (error) {
+    console.error('Error al obtener el carrito:', error);
+  }
+}

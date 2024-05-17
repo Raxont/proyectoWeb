@@ -92,7 +92,8 @@ class ProductCard extends LitElement {
     productName: { type: String },
     price: { type: String },
     cuantity: { type: String },
-    subtotal: { type: String } 
+    subtotal: { type: String },
+    productId: { type: String }
   };
 
   constructor() {
@@ -100,47 +101,52 @@ class ProductCard extends LitElement {
     this.imgSrc = "";
     this.productName = "";
     this.price = "";
-    this.cuantity="";
-    this.subtotal="";
+    this.cuantity = "";
+    this.subtotal = "";
+    this.productId = "";
+
   }
+
+  handleDelete() {
+    console.log(`Producto a eliminar con ID: ${this.productId}`);
+    const event = new CustomEvent('delete-product', {
+      detail: { id: this.productId },
+      bubbles: true,
+      composed: true
+    });
+    this.dispatchEvent(event);
+  }
+
 
   render() {
     return html`
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+      <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
       <div class="div5_1">
         <div class="contenedor_imagen">
-            <img src=${this.imgSrc} alt="Product Image" />
+          <img src=${this.imgSrc} alt="Product Image" />
         </div>
         <div class="div5_1_nombre">
           Nombre <br />
-          <div class="nombre">
-            ${this.productName}
-          </div>
-          
+          <div class="nombre">${this.productName}</div>
         </div>
         <div class="div5_1_cantidad">
           <div class="div5_1_cantidad_palabra">Cantidad</div>
-          <div class="nombre">
-            ${this.cuantity}
-          </div>
+          <div class="nombre">${this.cuantity}</div>
         </div>
         <div class="div5_1_precio">
           Precio<br />
-          <div class="nombre">
-            ${this.price}
-          </div>
+          <div class="nombre">${this.price}</div>
         </div>
         <div class="div5_1_subtotal">
           Subtotal <br />
-          <div class="nombre">
-            ${this.subtotal}
-          </div>
+          <div class="nombre">${this.subtotal}</div>
         </div>
-        <button id="btnPantalones" class="div5_trash">
-            <i class="bx bx-trash"></i>
+        <button id="btnTrash" class="div5_trash" @click="${this.handleDelete}">
+          <i class="bx bx-trash"></i>
         </button>
       </div>
     `;
   }
 }
+
 customElements.define("product-card2", ProductCard);
