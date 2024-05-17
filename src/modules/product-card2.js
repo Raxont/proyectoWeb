@@ -4,7 +4,7 @@ class ProductCard extends LitElement {
   static styles = css`
     :host {
       width: 95%;
-      height: 24vh;
+      height: 21vh;
       background: var(--color-sexto);
       border-radius: 3em;
       -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
@@ -28,7 +28,6 @@ class ProductCard extends LitElement {
     .contenedor_imagen {
       width: 25%;
       height: 90%;
-     
       display: flex;
       justify-content: center;
     }
@@ -60,7 +59,6 @@ class ProductCard extends LitElement {
     button{
         appearance: auto;
         text-rendering: auto;
-        color: buttontext;
         letter-spacing: normal;
         word-spacing: normal;
         line-height: normal;

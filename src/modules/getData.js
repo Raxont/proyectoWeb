@@ -121,7 +121,6 @@ export const getCombinedData = async () => {
                     subtotal: order.cantidad * product.precio,
                     type: type
                 };
-                
             }
             console.log("Cantidad del pedido:", order.cantidad);
         });
