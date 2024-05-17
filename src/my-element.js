@@ -14,16 +14,18 @@ class MyElement extends LitElement {
       padding: 16px;
     }
     .product-list {
-      width: 100%;
+      width: 95%;
       height: 95%;
       padding: 0 0 0 1.5em;
-      /* background: red; */
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 1.8em;
       max-height: 80vh;
       overflow-y: scroll;
+    }
+    .product-list::-webkit-scrollbar{
+      display: none;
     }
   `;
 

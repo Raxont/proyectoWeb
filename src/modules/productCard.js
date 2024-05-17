@@ -3,9 +3,19 @@ import "./cart"
 
 class ProductCard extends LitElement {
   static styles = css`
+    :host{
+      width: 17vw;
+      height: 38vh;
+      background: var(--color-sexto);
+      border-radius: 3em;
+      -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+      -moz-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+      box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
+      
+    }
     .div5_1 {
-      width: 23%;
-      height: 48%;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(#0001, var(--color-primario));
       -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
       -moz-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
