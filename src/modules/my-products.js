@@ -3,15 +3,14 @@ import {
     getCoats,
     getShirts, 
     getPants
-} from "./modules/getData.js";
-import "./modules/productCard.js";
+} from "./getData.js";
+import "./product-card.js";
 
 
 class MyElement extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 16px;
     }
     .product-list {
       width: 95%;
@@ -63,4 +62,4 @@ class MyElement extends LitElement {
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define('my-products', MyElement);

@@ -1,11 +1,11 @@
 import { LitElement, html, css } from 'lit';
-import "./cart"
+import "./carts.js"
 
 class ProductCard extends LitElement {
   static styles = css`
     :host{
-      width: 17vw;
-      height: 38vh;
+      width: 22vw;
+      height: 37vh;
       background: var(--color-sexto);
       border-radius: 3em;
       -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
