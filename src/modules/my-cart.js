@@ -5,7 +5,7 @@ import "./product-card2.js";
 class MyElement extends LitElement {
   static styles = css`
     .product-list {
-      width: 90%;
+      width: 100%;
       height: 80%;
       padding: 0 0 0 1.5em;
       display: flex;

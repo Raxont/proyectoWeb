@@ -4,7 +4,7 @@ import "./carts.js"
 class ProductCard extends LitElement {
   static styles = css`
     :host{
-      width: 22vw;
+      width: 17vw;
       height: 37vh;
       background: var(--color-sexto);
       border-radius: 3em;
@@ -30,27 +30,38 @@ class ProductCard extends LitElement {
     .div5_1 img {
       width: 100%;
       height: 70%;
+      
     }
 
     .div5_1_1 {
       width: 100%;
       height: 30%;
       background: var(--color-secundario);
-      border-radius: 1.5em;
+      
       border: 2px solid var(--color-quinto);
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      
     }
 
     .div5_1_1_p {
       width: 55%;
       height: 100%;
-      display: flex;
       align-items: center;
-      font-size: 1.2em;
+      font-size: .9em;
       margin-left: 1em;
       line-height: 2em;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      text-align:center;
+    }
+    .nombre{
+      overflow:scroll;
+    }
+    .nombre::-webkit-scrollbar {
+      display: none;
     }
   `;
 
@@ -90,10 +101,10 @@ class ProductCard extends LitElement {
       <div class="div5_1">
         <img src=${this.imgSrc} alt="Product Image" />
         <div class="div5_1_1">
-          <p class="div5_1_1_p">
-            ${this.productName} <br />
-            ${this.price}
-          </p>
+          <div class="div5_1_1_p">
+            <div class="nombre">${this.productName}</div>
+            <div class="precio">${this.price}</div>
+          </div>
           <toggle-menu @click=${this.handleAddToCart}></toggle-menu>
         </div>
       </div>

@@ -93,7 +93,7 @@ class MyElement extends LitElement {
           product => html`
             <product-card
               imgSrc="${product.imagen}"
-              productName="${product.nombre}"
+              productName="${product.name}"
               price="$ ${product.precio}"
               productId="${String(product.id)}"
               productType="abrigo"
