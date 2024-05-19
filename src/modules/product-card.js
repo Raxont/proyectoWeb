@@ -58,6 +58,8 @@ class ProductCard extends LitElement {
     imgSrc: { type: String },
     productName: { type: String },
     price: { type: String },
+    productId: { type: String },
+    productType: { type: String }
   };
 
   constructor() {
@@ -65,6 +67,22 @@ class ProductCard extends LitElement {
     this.imgSrc = '';
     this.productName = '';
     this.price = '';
+    this.productId = '';
+    this.productType = '';
+  }
+
+  handleAddToCart() {
+    this.dispatchEvent(new CustomEvent('add-to-cart', {
+      detail: {
+        productId: this.productId,
+        productType: this.productType,
+        nombre: this.productName,
+        imagen: this.imgSrc,
+        precio: this.price
+      },
+      bubbles: true,
+      composed: true
+    }));
   }
 
   render() {
@@ -76,10 +94,11 @@ class ProductCard extends LitElement {
             ${this.productName} <br />
             ${this.price}
           </p>
-          <toggle-menu></toggle-menu>
+          <toggle-menu @click=${this.handleAddToCart}></toggle-menu>
         </div>
       </div>
     `;
   }
 }
+
 customElements.define('product-card', ProductCard);

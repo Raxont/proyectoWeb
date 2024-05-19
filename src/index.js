@@ -137,102 +137,8 @@ class MyBodyComponent extends LitElement {
         max-height: 80vh;
         overflow-y: scroll;
       }
-
-      @media only screen and (max-width: 800px) {
-        body {
-          padding: 0.5em;
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "logo"
-            "menus"
-            "carrito"
-            "img"
-            "derechos";
-        }
-        .div2 nav {
-          display: none;
-          background: var(--color-sexto);
-          border: 1px solid var(--color-terciario);
-        }
-        #toggleMenu {
-          display: block;
-          font-size: 1.5em;
-          width: 3em;
-          background: var(--color-sexto);
-        }
-        .div2_ul {
-          padding-top: 1em;
-          gap: 0em;
-          margin-top: -1em;
-        }
-        .div2_ul_li_eleccion,
-        .div2_ul_li {
-        }
-        .div2_ul_li_eleccion {
-          background: none;
-        }
-        .div3_1 {
-          background: none;
-          padding-top: 2em;
-        }
-        .div4_p {
-          padding-top: 2em;
-        }
-        .div5 {
-          width: 95vw;
-          height: 100vh;
-          margin-top: 0.5em;
-          padding: 0;
-        }
-        .div5_p {
-          font-size: 1.5em;
-          padding: 1em 0 1.5em 1em;
-          display: flex;
-        }
-        .div5_contenedor {
-          height: 100%;
-          padding: 0 0 0 1em;
-          gap: 1em;
-          max-height: 75vh;
-          overflow: scroll;
-        }
-        .div5_1 {
-          width: 45%;
-          height: 35vh;
-          gap: 0.2em;
-        }
-        .div5_1 img {
-          width: 50%;
-          height: 30vh;
-        }
-        .div5_1_1 {
-          width: 100%;
-          font-size: 0.5em;
-          display: flex;
-          align-items: center;
-          line-height: 1.5em;
-        }
-        .div5_1_1_p {
-          width: 55%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          font-size: 1em;
-          margin-left: 1em;
-          line-height: 2em;
-        }
-        .button {
-          --width: 80px;
-          --height: 20px;
-        }
-        .icon svg {
-          width: 14px;
-          height: 14px;
-        }
-      }
     `;
   }
-  
   render() {
     return html`
       <head>
@@ -251,33 +157,25 @@ class MyBodyComponent extends LitElement {
           <ul class="div2_ul">
             <li class="div2_ul_li" id="todosProductos">
               <button id="btnTodosProductos">
-                <i
-                  class="bx bx-menu-alt-left"
-                ></i>
+                <i class="bx bx-menu-alt-left"></i>
                 <p class="div2_ul_li_p">Todos los productos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="abrigos">
               <button id="btnAbrigos">
-                <i
-                  class="bx bx-chevrons-left"
-                ></i>
+                <i class="bx bx-chevrons-left"></i>
                 <p class="div2_ul_li_p">Abrigos</p>
               </button>
             </li>
             <li class="div2_ul_li" id="camisetas">
               <button id="btnCamisetas">
-                <i
-                  class="bx bx-chevrons-left"
-                ></i>
+                <i class="bx bx-chevrons-left"></i>
                 <p class="div2_ul_li_p">Camisetas</p>
               </button>
             </li>
             <li class="div2_ul_li" id="pantalones">
               <button id="btnPantalones">
-                <i
-                  class="bx bx-chevrons-left"
-                ></i>
+                <i class="bx bx-chevrons-left"></i>
                 <p class="div2_ul_li_p">Pantalones</p>
               </button>
             </li>
@@ -287,7 +185,7 @@ class MyBodyComponent extends LitElement {
       <div class="div3">
         <li class="div2_ul_li" id="carrito">
           <button id="btnCarrito">
-          <i class="bx bxs-cart"></i>
+            <i class="bx bxs-cart"></i>
             <p class="div2_ul_li_p">Carrito</p>
             <div class="div3_1_3">${this.numProductosEnCarrito}</div>
           </button>
@@ -302,35 +200,51 @@ class MyBodyComponent extends LitElement {
       </div>
     `;
   }
- 
+
   static get properties() {
     return {
       numProductosEnCarrito: { type: Number }
     };
   }
+
+  async actualizarCantidadProductosEnCarrito() {
+    try {
+      const response = await fetch('http://localhost:5501/carrito');
+      const carrito = await response.json();
+      this.numProductosEnCarrito = carrito.length;
+      this.requestUpdate();
+    } catch (error) {
+      console.error('Error al obtener el carrito:', error);
+    }
+  }
+
   connectedCallback() {
     super.connectedCallback();
-    
+    this.actualizarCantidadProductosEnCarrito();
+
+    this.addEventListener('carrito-actualizado', () => {
+      this.actualizarCantidadProductosEnCarrito();
+    });
+
     this.updateComplete.then(() => {
-      
       const botonesDiv2 = this.shadowRoot.querySelectorAll('.div2_ul_li button');
       const miComponente = this.shadowRoot.querySelector('#miComponente');
-  
+
       const updateSelectedOption = (opcion) => {
         botonesDiv2.forEach(btn => btn.classList.remove('opcion-seleccionada'));
         opcion.classList.add('opcion-seleccionada');
         miComponente.opcionSeleccionada = opcion.querySelector('p').textContent.toLowerCase();
-        
+
         const textoOpcion = opcion.querySelector('p').textContent;
         const textoFormateado = textoOpcion.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
-        
+
         const div5_p = this.shadowRoot.querySelector('.div5_p');
         div5_p.textContent = textoFormateado;
       };
-      
-      const btnTodosProductos = this.shadowRoot.querySelector('#btnCarrito');
+
+      const btnTodosProductos = this.shadowRoot.querySelector('#btnTodosProductos');
       updateSelectedOption(btnTodosProductos);
-  
+
       botonesDiv2.forEach(boton => {
         boton.addEventListener('click', () => {
           updateSelectedOption(boton);
@@ -338,21 +252,6 @@ class MyBodyComponent extends LitElement {
       });
     });
   }
-  
-  
-  
-  
-  
 }
 
 customElements.define("my-index", MyBodyComponent);
-
-export async function actualizarCantidadProductosEnCarrito() {
-  try {
-    const response = await fetch('http://localhost:5501/carrito');
-    const carrito = await response.json();
-    this.numProductosEnCarrito=carrito.length 
-  } catch (error) {
-    console.error('Error al obtener el carrito:', error);
-  }
-}

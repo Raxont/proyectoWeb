@@ -9,10 +9,10 @@ class MyElement extends LitElement {
       height: 80%;
       padding: 0 0 0 1.5em;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       flex-wrap: wrap;
       gap: 1.8em;
-      max-height: 80vh;
+      max-height: 70vh;
       overflow-y: scroll;
     }
     .product-list::-webkit-scrollbar {
@@ -91,17 +91,39 @@ class MyElement extends LitElement {
   constructor() {
     super();
     this.products = [];
+    this.pollingInterval = 2000;
   }
 
   async connectedCallback() {
     super.connectedCallback();
     await this.loadProducts();
+    this.startPolling();
+    this.addEventListener('add-to-cart', this.handleAddToCart.bind(this));
+  }
+
+  async disconnectedCallback() {
+    super.disconnectedCallback();
+    this.stopPolling();
+    this.removeEventListener('add-to-cart', this.handleAddToCart.bind(this));
   }
 
   async loadProducts() {
     const carts = await getCombinedData();
     this.products = [...carts];
-    console.log(this.products)
+    this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
+  }
+
+  startPolling() {
+    this.polling = setInterval(async () => {
+      await this.loadProducts();
+    }, this.pollingInterval);
+  }
+
+  stopPolling() {
+    if (this.polling) {
+      clearInterval(this.polling);
+      this.polling = null;
+    }
   }
 
   getTotal() {
@@ -120,7 +142,7 @@ class MyElement extends LitElement {
           })
         )
       );
-
+      this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
       await this.loadProducts();
     } catch (error) {
       console.error('Error al vaciar el carrito', error);
@@ -134,8 +156,8 @@ class MyElement extends LitElement {
         method: 'DELETE'
       });
       if (response.ok) {
-        console.log(`Producto con ID: ${id} eliminado exitosamente`);
         await this.loadProducts();
+        this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
       } else {
         console.error('Error al eliminar el producto', response.statusText);
       }
@@ -144,11 +166,49 @@ class MyElement extends LitElement {
     }
   }
   
-
   handleDeleteProduct(event) {
     const productId = event.detail.id;
-    console.log(`Evento delete-product recibido con ID: ${productId}`);
     this.eliminarProducto(productId);
+  }
+
+  async handleAddToCart(event) {
+    const { productId, productType, productName, price, imgSrc } = event.detail;
+    const existingProductIndex = this.products.findIndex(item => item.productId === productId && item.type === productType);
+  
+    if (existingProductIndex !== -1) {
+      this.products[existingProductIndex].cantidad += 1;
+      this.products[existingProductIndex].subtotal = this.products[existingProductIndex].cantidad * parseFloat(price.replace('$', ''));
+    } else {
+      const newProduct = {
+        id: Date.now().toString(),
+        productId,
+        type: productType,
+        nombre: productName,
+        precio: price,
+        imagen: imgSrc,
+        cantidad: 1,
+        subtotal: parseFloat(price.replace('$', ''))
+      };
+      this.products = [...this.products, newProduct];
+    }
+  
+    console.log("Productos actualizados:", this.products); 
+  
+    await this.saveProducts();
+    this.dispatchEvent(new CustomEvent('carrito-actualizado', { bubbles: true, composed: true }));
+    this.requestUpdate();
+  }
+  
+  async saveProducts() {
+    try {
+      await fetch('http://localhost:5501/carrito', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.products)
+      });
+    } catch (error) {
+      console.error('Error al guardar los productos', error);
+    }
   }
 
   render() {

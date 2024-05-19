@@ -82,16 +82,24 @@ class ToggleMenu extends LitElement {
 
   static properties = {
     open: { type: Boolean },
+    product: { type: Object }
   };
 
   constructor() {
     super();
     this.open = false;
+    this.product = {};
   }
-
-  toggleMenu() {
-    this.open = !this.open;
+toggleMenu() {
+  this.open = !this.open;
+  if (this.product.productId && this.product.productType && this.product.productName && this.product.price && this.product.imgSrc) {
+    this.dispatchEvent(new CustomEvent('add-to-cart', { 
+      detail: this.product, 
+      bubbles: true, 
+      composed: true 
+    }));
   }
+}
 
   render() {
     return html`
@@ -117,5 +125,4 @@ class ToggleMenu extends LitElement {
     `;
   }
 }
-
 customElements.define("toggle-menu", ToggleMenu);
