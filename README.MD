@@ -1,16 +1,13 @@
-Este es la base del proyectoWeb:
+Este proyecto ha sido actualizado para manejar Web Components y utilizar una base de datos con json-server, haciendo la página web completamente funcional.
 
-Se crea las carpetas css, store y img
+##Tecnologías Utilizadas
+Vite: Utilizado para manejar los Web Components con LIT.
+LIT: Facilita la integración de HTML y CSS dentro de los componentes.
 
-Css: Contiene el archivo styles.css y variables.css
+##Estructura del Proyecto
+index.js: Este es nuestro archivo principal, donde se maneja la mayoría de la lógica relacionada con HTML y CSS utilizando LIT.
+Carpeta modules: Contiene los módulos utilizados en el proyecto.
+Carpeta db: Almacena el archivo JSON que actúa como nuestra base de datos.
 
-store: Contiene la carpeta img
-
-img: Contiene las imágenes que se van a usar en las paginas web
-
-
-
-Se crea el archivo index.html donde va a quedar el archivo base de nuestra pagina web
-
-Se crea el archivo README donde se va a describir brevemente el funcionamiento de la pagina web
-
+##Notas Adicionales
+No almacenamos imágenes directamente en el repositorio; toda la información visual está contenida dentro del JSON.
