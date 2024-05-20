@@ -155,7 +155,6 @@ class MyBodyComponent extends LitElement {
         .div1_h1 {
           font-size: 1em;
         }
-        
         .div2 nav{
           display: none;
           background: var(--color-sexto);
@@ -168,21 +167,62 @@ class MyBodyComponent extends LitElement {
           background: var(--color-sexto);
         }
         .div2_ul {
-          padding-top: 1em;
+          padding-top: 0em;
           gap: 0em;
-          margin-top: -1em;
+          margin-top: 0em;
+          background: var(--color-terciario);
         }
-        .div2_ul_li_eleccion,
-        .div2_ul_li{
-          border: 1px solid var(--color-terciario);
+        button{
+          height:90%;
+          width:100%;
+          text-indent: 0px;
+          text-shadow: none;
+          text-align: center;
+          cursor: pointer;
+          margin: 0em;
+          padding-block: 0px;
+          padding-inline: 0px;
+          border-width: 0px;
+          display:flex;
+          align-items: center;
+          font-size: .8em;
+          gap:15px;
+          background: var(--color-secundario);
+          color: var(--color-primario);
         }
-        .div2_ul_li_eleccion{
-          background: none;
+        
+        .div3 {
+          grid-area: carrito;
+          height:80%;
         }
         .div3_1 {
-          background: none;
-          padding-top: 2em;
+          font-size: .8em;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1.5em;
         }
+        .bxs-cart {
+          font-size: .8em;
+        }
+        .div3_1_3 {
+          background: var(--color-sexto);
+          width: 5%;
+          border: 3px solid var(--color-primario);
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #btnCarrito{
+          font-size:1.2em;
+        }
+        .opcion-seleccionada {
+          background: var(--color-secundario);
+        }
+      
+      
+
         .div4_p {
           padding-top: 2em;
         }
