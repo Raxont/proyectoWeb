@@ -21,6 +21,20 @@ class MyElement extends LitElement {
     .product-list::-webkit-scrollbar{
       display: none;
     }
+    @media only screen and (max-width: 800px){
+      :host{
+        max-height: 90%;
+        overflow-y: scroll;
+      }
+      .product-list {
+        width: 95%;
+        height: 95%;
+        padding: 0 0 0 1.5em;
+        gap: 1em;
+        max-height: 65vh;
+        overflow-y: scroll;
+      }
+    }
   `;
 
   static properties = {

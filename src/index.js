@@ -141,6 +141,7 @@ class MyBodyComponent extends LitElement {
         :host {
           padding: 0.5em 0.5em 0.5em 0.5em;
           grid-template-columns: 1fr;
+          grid-template-rows: repeat(5,1fr);
           grid-template-areas:
             "logo"
             "menus"
@@ -220,12 +221,27 @@ class MyBodyComponent extends LitElement {
         .opcion-seleccionada {
           background: var(--color-secundario);
         }
-      
-      
-
+        .div4 {
+          grid-area: derechos;
+        }
         .div4_p {
           padding-top: 2em;
         }
+        .div5{
+          height:80%;
+          width:100%;
+        }
+        .div5_p {
+          width: 100%;
+          height: 6vh;
+          font-size: 1.5em;
+          padding: 0.8em 0 0em 1em;
+          display: flex;
+          margin-block-start: 0em;
+          margin-block-end: 0em;
+          
+          
+      }
     `;
   }
   render() {
@@ -347,7 +363,7 @@ class MyBodyComponent extends LitElement {
         }
       };
   
-      const btnTodosProductos = this.shadowRoot.querySelector('#btnTodosProductos');
+      const btnTodosProductos = this.shadowRoot.querySelector('#btnCarrito');
       updateSelectedOption(btnTodosProductos);
   
       botonesDiv2.forEach(boton => {

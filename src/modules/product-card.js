@@ -30,7 +30,6 @@ class ProductCard extends LitElement {
     .div5_1 img {
       width: 100%;
       height: 70%;
-      
     }
 
     .div5_1_1 {
@@ -62,6 +61,20 @@ class ProductCard extends LitElement {
     }
     .nombre::-webkit-scrollbar {
       display: none;
+    }
+    @media only screen and (max-width: 800px) {
+      :host{
+        width: 40vw;
+        height: 32vh;
+      }
+      .nombre{
+        overflow:scroll;
+        font-size: .8em;
+        line-height: 1;
+      }
+      .precio{
+        font-size: .8em;
+      }
     }
   `;
 

@@ -78,6 +78,18 @@ class ToggleMenu extends LitElement {
     .menu[open] {
       display: block;
     }
+    @media only screen and (max-width: 800px) {
+      .button {
+        --width: 40px;
+        --height: 20px;
+        margin: 4em 1em 1em 0.5em;
+        font-size:.5em;
+      }
+      .icon svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   `;
 
   static properties = {
