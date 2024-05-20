@@ -24,7 +24,6 @@ class ProductCard extends LitElement {
       flex-direction: column;
       align-items: center;
       border-radius: 20px;
-      overflow: hidden;
     }
 
     .div5_1 img {
@@ -36,7 +35,6 @@ class ProductCard extends LitElement {
       width: 100%;
       height: 30%;
       background: var(--color-secundario);
-      
       border: 2px solid var(--color-quinto);
       display: flex;
       align-items: center;
@@ -64,8 +62,8 @@ class ProductCard extends LitElement {
     }
     @media only screen and (max-width: 800px) {
       :host{
-        width: 40vw;
-        height: 32vh;
+        width: 43vw;
+        height: 33vh;
       }
       .nombre{
         overflow:scroll;

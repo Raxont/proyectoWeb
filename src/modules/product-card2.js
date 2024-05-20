@@ -10,7 +10,6 @@ class ProductCard extends LitElement {
       -webkit-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
       -moz-box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
       box-shadow: inset -47px -57px 47px -42px rgba(0, 0, 0, 1);
-      
     }
     .div5_1 {
       width: 100%;
@@ -88,7 +87,7 @@ class ProductCard extends LitElement {
     @media only screen and (max-width: 800px) {
       :host{
         width: 90vw;
-        height: 20vh;
+        height: 22vh;
         
       }
       .div5_1 {
@@ -117,13 +116,12 @@ class ProductCard extends LitElement {
       .div5_1_cantidad {
       width: 41%;
       height: 80%;
-      font-size: .7em;
+      font-size: .8em;
       gap: 1em;
       text-align:center;
       }
-
       button{
-        font-size:.7em;
+        font-size:.75em;
       }
       .bx-trash{
         height:100%;

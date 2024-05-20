@@ -111,7 +111,7 @@ class MyBodyComponent extends LitElement {
       }
       .div5 {
         width: 100%;
-        height: 95%;
+        height:100%;
         grid-area: img;
         background: var(--color-sexto);
         border-radius: 3em;
@@ -126,22 +126,11 @@ class MyBodyComponent extends LitElement {
         margin-block-start: 0em;
         margin-block-end: 0em;
       }
-      .div5_contenedor {
-        width: 100%;
-        height: 95%;
-        padding: 0 0 0 1.5em;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1.8em;
-        max-height: 80vh;
-        overflow-y: scroll;
-      }
       @media only screen and (max-width: 800px) {
         :host {
           padding: 0.5em 0.5em 0.5em 0.5em;
           grid-template-columns: 1fr;
-          grid-template-rows: repeat(5,1fr);
+          grid-template-rows: .5fr .5fr .5fr 10fr .5fr;
           grid-template-areas:
             "logo"
             "menus"
@@ -222,25 +211,26 @@ class MyBodyComponent extends LitElement {
           background: var(--color-secundario);
         }
         .div4 {
-          grid-area: derechos;
+          width:100%;
+          height:100%;
         }
         .div4_p {
-          padding-top: 2em;
+          padding-top: 0em;
+          margin-block-start: 0em;
+          margin-block-end: 0em;
         }
         .div5{
-          height:80%;
+          height:100%;
           width:100%;
         }
         .div5_p {
           width: 100%;
-          height: 6vh;
+          height: 5%;
           font-size: 1.5em;
           padding: 0.8em 0 0em 1em;
           display: flex;
           margin-block-start: 0em;
           margin-block-end: 0em;
-          
-          
       }
     `;
   }

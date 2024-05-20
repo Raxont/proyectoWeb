@@ -24,6 +24,15 @@ class MyElement extends LitElement {
     .product-list::-webkit-scrollbar{
       display: none;
     }
+    @media only screen and (max-width: 800px){
+      .product-list {
+        width: 95%;
+        height: 100%;
+        gap: 1em;
+        max-height: 69vh;
+        overflow-y: scroll;
+      }
+    }
   `;
 
  

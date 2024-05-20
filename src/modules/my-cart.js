@@ -80,7 +80,60 @@ class MyElement extends LitElement {
       gap:10px;
     }
     .total p{
-      font-size:1.5em;
+      font-size:1em;
+    }
+    @media only screen and (max-width: 800px){
+      :host{
+        width: 100%;
+        height: 30%;
+      }
+      .product-list {
+        width: 100%;
+        height: 10%;
+        padding: 0 0 0 1.5em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+        overflow-y: scroll;
+      }
+      .product-list::-webkit-scrollbar {
+        display: none;
+      }
+      .footer{
+        width:100%;
+        height:50%;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .vaciarCarrito_1{
+        width: 20%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        
+      }
+      .vaciarCarrito_1 p{
+        font-size:1em;
+      }
+      .vaciarCarrito_2{
+        width: 40%;
+        height: 20%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .total{
+        display:flex;
+        width:60%;
+        align-items: center;
+        justify-content: flex-end;
+        gap:10px;
+      }
+      .total p{
+        font-size:1em;
+      }
     }
   `;
 
