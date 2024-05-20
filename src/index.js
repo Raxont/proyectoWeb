@@ -137,6 +137,55 @@ class MyBodyComponent extends LitElement {
         max-height: 80vh;
         overflow-y: scroll;
       }
+      @media only screen and (max-width: 800px) {
+        :host {
+          padding: 0.5em 0.5em 0.5em 0.5em;
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "logo"
+            "menus"
+            "carrito"
+            "img"
+            "derechos";
+        }
+        .div1{
+          display:flex;
+          flex-direction:column;
+        }
+        .div1_h1 {
+          font-size: 1em;
+        }
+        
+        .div2 nav{
+          display: none;
+          background: var(--color-sexto);
+          border: 1px solid var(--color-terciario);
+        }
+        #toggleMenu{
+          display: block;
+          font-size: 1em;
+          width: 3em;
+          background: var(--color-sexto);
+        }
+        .div2_ul {
+          padding-top: 1em;
+          gap: 0em;
+          margin-top: -1em;
+        }
+        .div2_ul_li_eleccion,
+        .div2_ul_li{
+          border: 1px solid var(--color-terciario);
+        }
+        .div2_ul_li_eleccion{
+          background: none;
+        }
+        .div3_1 {
+          background: none;
+          padding-top: 2em;
+        }
+        .div4_p {
+          padding-top: 2em;
+        }
     `;
   }
   render() {
@@ -221,35 +270,54 @@ class MyBodyComponent extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.actualizarCantidadProductosEnCarrito();
-
+  
     this.addEventListener('carrito-actualizado', () => {
       this.actualizarCantidadProductosEnCarrito();
     });
-
+  
     this.updateComplete.then(() => {
       const botonesDiv2 = this.shadowRoot.querySelectorAll('.div2_ul_li button');
       const miComponente = this.shadowRoot.querySelector('#miComponente');
-
+      const menuDiv2 = this.shadowRoot.querySelector('.div2 nav');
+      const toggleMenuButton = this.shadowRoot.querySelector('#toggleMenu');
+  
       const updateSelectedOption = (opcion) => {
         botonesDiv2.forEach(btn => btn.classList.remove('opcion-seleccionada'));
         opcion.classList.add('opcion-seleccionada');
         miComponente.opcionSeleccionada = opcion.querySelector('p').textContent.toLowerCase();
-
+  
         const textoOpcion = opcion.querySelector('p').textContent;
         const textoFormateado = textoOpcion.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
-
+  
         const div5_p = this.shadowRoot.querySelector('.div5_p');
         div5_p.textContent = textoFormateado;
       };
-
+  
+      const closeMenu = () => {
+        menuDiv2.style.display = 'none';
+        document.removeEventListener('click', closeMenu);
+      };
+  
+      const toggleMenu = (event) => {
+        event.stopPropagation();
+        const isMenuVisible = menuDiv2.style.display === 'block';
+        menuDiv2.style.display = isMenuVisible ? 'none' : 'block';
+        if (!isMenuVisible) {
+          document.addEventListener('click', closeMenu);
+        }
+      };
+  
       const btnTodosProductos = this.shadowRoot.querySelector('#btnTodosProductos');
       updateSelectedOption(btnTodosProductos);
-
+  
       botonesDiv2.forEach(boton => {
         boton.addEventListener('click', () => {
           updateSelectedOption(boton);
         });
       });
+  
+      // Event listener for the toggle button
+      toggleMenuButton.addEventListener('click', toggleMenu);
     });
   }
 }
